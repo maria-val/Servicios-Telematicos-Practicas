@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="css/iroom.css">
+        <script src=http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js></script> 
+        <title>Tablas</title>
+    </head>
+    <body>
+        <header>Smart Room Project</header> &nbsp&nbsp
+        <div class="tabla">
+            <table id="t1">
+                <tr>
+                    <th>Ciudad</th>
+                    <th>Temperatura</th>
+                    <th>Humedad</th>
+                    <th>Ruido</th>
+                    <th>Nivel de luz</th>
+                    <th>Color de iluminacion</th>
+                </tr>
+                <tr>
+                    <td>Alcala de H.</td>
+                    <td>25</td>
+                    <td>48</td>
+                    <td>150</td>
+                    <td>120</td>
+                    <td>00000</td>
+                </tr>
+                <tr>
+                    <td>Alicante</td>
+                    <td>30</td>
+                    <td>69</td>
+                    <td>180</td>
+                    <td>211</td>
+                    <td>F000</td>
+                </tr>
+                <tr>
+                    <td>Badajoz</td>
+                    <td>35</td>
+                    <td>30</td>
+                    <td>50</td>
+                    <td>150</td>
+                    <td>00FF00</td>
+                </tr>
+                <tr>
+                    <td>Burgos</td>
+                    <td>18</td>
+                    <td>42</td>
+                    <td>211</td>
+                    <td>180</td>
+                    <td>0000FF</td>
+                </tr>
+                <tr>
+                    <td>Córdoba</td>
+                    <td>35</td>
+                    <td>41</td>
+                    <td>150</td>
+                    <td>50</td>
+                    <td>FFFFFF</td>
+                </tr>
+            </table>
+            <table id="t2">
+                <tr>
+                    <th>Ciudad</th>
+                    <th>Temperatura</th>
+                    <th>Humedad</th>
+                    <th>Ruido</th>
+                    <th>Nivel de luz</th>
+                    <th>Color de iluminacion</th>
+                </tr>
+                <tr>
+                    <td>Madrid</td>
+                    <td>23</td>
+                    <td>70</td>
+                    <td>50</td>
+                    <td>230</td>
+                    <td>0F0F0F</td>
+                </tr>
+                <tr>
+                    <td>Toledo</td>
+                    <td>15</td>
+                    <td>69</td>
+                    <td>146</td>
+                    <td>190</td>
+                    <td>00FF0F</td>
+                </tr>
+                <tr>
+                    <td>Sevilla</td>
+                    <td>40</td>
+                    <td>80</td>
+                    <td>148</td>
+                    <td>50</td>
+                    <td>FFF000</td>
+                </tr>
+                <tr>
+                    <td>Ibiza</td>
+                    <td>31</td>
+                    <td>90</td>
+                    <td>80</td>
+                    <td>150</td>
+                    <td>F0FF00</td>
+                </tr>
+                <tr>
+                    <td>Málaga</td>
+                    <td>30</td>
+                    <td>75</td>
+                    <td>148</td>
+                    <td>70</td>
+                    <td>FFFFFF</td>
+                </tr>
+            </table>
+            <table id="t3"></table>
+            <table id="t4">
+                <tr>
+                    <th>Ciudad</th>
+                    <th>Temperatura</th>
+                    <th>Humedad</th>
+                    <th>Ruido</th>
+                    <th>Nivel de luz</th>
+                    <th>Color de iluminacion</th>
+                </tr>
+            </table>
+
+            <div class="botones">
+                <button class="pag1">Página 1</button>
+                <button class="pag2">Página 2</button>
+                <button class="pag3">Página 3</button>
+                <button class="pag4">Página 4</button>
+            </div>
+        </div>
+
+        <div class="retorno"><a href="index.html">Volver a página principal</a></div>
+        <footer>Universidad de Alcalá</footer>
+
+    </body>
+    <script>
+        function estiloTabla() {
+            $("table").css({
+                'background-color': 'white',
+                'border-collapse': 'collapse',
+                'width': '65%',
+                'margin': 'auto',
+                'margin-top': '5%',
+                'table-layout':'fixed',
+                'font-size':'18px',
+                'line-height': '25px',
+                'text-align':'center'
+            });
+            $("td").css({'height': '10px'})
+        }
+        $(document).ready(function(){
+            var ctrl = false;
+            estiloTabla();
+            $("button").css({
+                'margin':'auto',
+                'background-color': '#ffffff',
+                'border': '1px solid #000000',
+                'float':'left'
+            });
+            $(".botones").css({'width': '65%',
+                'margin': 'auto'})
+            $("#t2").hide();
+            $("#t3").hide();
+            $("#t4").hide();
+            $(".pag1").css({
+                    'color':'#ff4800',
+                    'font-weight':'bold'
+                })
+
+            $(".pag1").click(function(){
+                $("#t1").show();
+                $("#t2").hide();
+                $("#t3").hide();
+                $("#t4").hide();
+
+                $(".pag1").css({
+                    'color':'#ff4800',
+                    'font-weight':'bold'
+                })
+                $(".pag2").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+                $(".pag3").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+                $(".pag4").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+
+            })
+            $(".pag2").click(function(){
+                $("#t2").show();
+                $("#t1").hide();
+                $("#t3").hide();
+                $("#t4").hide();
+
+                $(".pag2").css({
+                    'color':'#ff4800',
+                    'font-weight':'bold'
+                })
+                $(".pag1").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+                $(".pag3").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+                $(".pag4").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+                    
+            })
+            $(".pag3").click(function(){
+                $("#t3").show();
+                $("#t1").hide();
+                $("#t2").hide();
+                $("#t4").hide();
+
+                $(".pag3").css({
+                    'color':'#ff4800',
+                    'font-weight':'bold'
+                })
+                $(".pag1").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+                $(".pag2").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+                $(".pag4").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+
+                loadXml();
+            })
+            $(".pag4").click(function(){
+                //...
+                //código anteriormente expuesto
+                //...
+                $("#t4").show();
+                $("#t1").hide();
+                $("#t2").hide();
+                $("#t3").hide();
+
+                $(".pag4").css({
+                    'color':'#ff4800',
+                    'font-weight':'bold'
+                })
+                $(".pag1").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+                $(".pag2").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+                $(".pag3").css({
+                    'color':'#000000',
+                    'font-weight': 'normal'
+                })
+
+                if (!ctrl){
+                    $.getJSON("/data/tabla4.json", function(data){
+                        var tabla_datos ="";
+                        for(i=0; i< data.datos.length; i++){
+                            tabla_datos += "<tr>";
+                            tabla_datos += "<td>" + data.datos[i].ciudad + "</td>";
+                            tabla_datos += "<td>" + data.datos[i].temperatura + "</td>";
+                            tabla_datos += "<td>" + data.datos[i].humedad + "</td>";
+                            tabla_datos += "<td>" + data.datos[i].ruido + "</td>";
+                            tabla_datos += "<td>" + data.datos[i].nivel_luz + "</td>";
+                            tabla_datos += "<td>" + data.datos[i].color_iluminacion + "</td>";
+                            tabla_datos += "</tr>";
+                        }
+                        ctrl = true;
+                        $("#t4").append(tabla_datos);
+                    });
+                }               
+            });
+        });
+
+        function loadXml() {
+            const objeto = new XMLHttpRequest();
+                objeto.onload = function(){
+                    tablaXml(this);
+                }
+                objeto.open("GET", "/data/tabla3.xml");
+                objeto.send();
+        }
+        function tablaXml(xml) {
+            const docXml = xml.responseXML;
+            const objDoc = docXml.getElementsByTagName("DATOS");
+            console.log(docXml);
+            tabla = "<tr><th>Ciudad</th><th>Temperatura</th><th>Humedad</th><th>Ruido</th><th>Nivel de luz</th><th>Color de iluminación</th></tr>";
+            for(i=0; i <objDoc.length; i++) {
+                tabla += "<tr><td>" + objDoc[i].getElementsByTagName("CIUDAD")[0].childNodes[0].nodeValue+"</td>"
+                    + "<td>" + objDoc[i].getElementsByTagName("TEMPERATURA")[0].childNodes[0].nodeValue+"</td>"
+                    + "<td>" + objDoc[i].getElementsByTagName("HUMEDAD")[0].childNodes[0].nodeValue+"</td>"
+                    + "<td>" + objDoc[i].getElementsByTagName("RUIDO")[0].childNodes[0].nodeValue+"</td>"
+                    + "<td>" + objDoc[i].getElementsByTagName("NIVEL_LUZ")[0].childNodes[0].nodeValue+"</td>"
+                    + "<td>" + objDoc[i].getElementsByTagName("COLOR_ILUMINACION")[0].childNodes[0].nodeValue+"</td></tr>";
+            }
+            estiloTabla();
+            document.getElementById("t3").innerHTML = tabla;
+        }
+    </script>
+</html>

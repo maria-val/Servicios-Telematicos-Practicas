@@ -1,0 +1,150 @@
+html, body {
+    margin: 0px;
+    background-color: #adadad;
+    font-size: 19px;
+}
+
+header {
+    background-color: #ff895e;
+    font-size: 55px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    width: 100%; 
+    float: left;
+}
+
+footer {
+    background-color: #4169e1;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    font-weight: bold;
+}
+
+@keyframes anim1 {
+    50% {transform:scale(1.25,1.25);}
+    100%{}
+}
+
+.datos > img {
+    animation-name: anim1;
+    animation-duration: 3s;
+    width: 250px;
+    height: 175px;
+}
+
+.datos > table {
+    width: 400px;
+    height: 300px;
+}
+
+.datos > table, th, td {
+    border: 1px solid #000000;
+    overflow: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #ff4800;
+}
+
+hr {
+    width: 50%;
+}
+
+a {
+    color: #f86630;
+}
+
+a:hover {
+    background-color: #e79b17;
+}
+
+.contenedor {
+    width: 100%;
+    float: left;
+}
+
+.datos {
+    text-align: center;
+    font-weight: bold;
+    width: 50%;
+    float: left;
+}
+
+.datos > ul > li {
+    text-align: left;
+    margin-left: 10%;
+}
+
+.menu {
+    background-color: #ffe282; 
+    color: #f86630;
+    width: 50%; 
+    float: left;
+}
+
+.info {
+    background-color: #fff45c;
+    color: #f86630;
+    width: 50%; 
+    float: left;
+}
+
+.col {
+    width: 50%;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.minombre {
+    text-align: center;
+}
+
+input#url {
+    width: 325px;
+}
+
+.retorno {
+    background-color: #666666;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    float: left;
+}
+
+.galeria {
+    background-color: #808080;
+    height: 250px;
+    width: 70%;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.galeria >.prev, .next {
+    cursor: pointer; /*cursor que indica un enlace*/
+    position: absolute;
+    top: 40%;
+    color: #ffffff;
+    font-weight: bold;
+}
+.prev {
+    left: 0%;
+}
+
+.next {
+    right: 0%;
+}
+.imagenes > img {
+    width: 300px;
+    height: 200px;
+    float: left;
+    margin: 2%; 
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/galeria.css" type="text/css" media="all" charset="utf-8"/>
+    <link rel="stylesheet" href="css/iroom.css">
+    <meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+  	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	  <script type="text/javascript" src="js/prefixfree.min.js"></script>
+	  <script type="text/javascript" src="js/zoom-slideshow.js"></script>
+
+	  <script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+	  <script>
+	    $(document).ready(function() {
+        $('#imagen').setZoomPicture({
+	          thumbsContainer: '#smallimg',
+            prevContainer: '#moveleft',
+	          nextContainer: '#moveright',
+        });
+	    });
+	  </script>
+    <script>
+      $(document).ready(function () { //libreria jquery
+          $("#img1").mouseover(function () {
+            $('#text').text("Estación 1");
+          });
+          $("#img2").mouseover(function () {
+            $('#text').text("Estación 2");
+          });
+          $("#img3").mouseover(function () {
+            $('#text').text("Estación 3");
+          });
+          $("#img4").mouseover(function () {
+            $('#text').text("Estación 4");
+          });
+          $("#img5").mouseover(function () {
+            $('#text').text("Estación 5");
+          });
+          $("#img6").mouseover(function () {
+            $('#text').text("Estación 6");
+          });
+          $("#img7").mouseover(function () {
+            $('#text').text("Estación 7");
+          });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $('#imagen').setZoomPicture( {
+          thumbsContainer: '#smallimg',
+          prevContainer: '#moveleft',
+          nextContainer: '#moveright',
+          zoomContainer: '#zoom',
+          zoomLevel: 2
+        }); 
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="cab" id="cab"><h2>Galería</h2></div>
+    <div id="zoom"></div>
+    <div class="contenedor2">
+			<div id="menu_imagen">
+				<div id="imagen" ><img src="images/est1.jpg"/></div>
+				<div id="lista_imagen">
+					<div id="moveleft">&#10094;</div>
+					<div id="smallimg">
+            <img src="images/est1.jpg" id="img1"/>
+            <img src="images/est2.jpg" id="img2"/>
+            <img src="images/est3.jpg" id="img3"/>
+            <img src="images/est4.jpg" id="img4"/>
+            <img src="images/est5.jpg" id="img5"/>
+            <img src="images/est6.jpg" id="img6"/>
+            <img src="images/est7.jpg" id="img7"/>
+					</div>
+					<div id="moveright">&#10095;</div>
+				</div>
+			</div>
+      <p id="text"></p>
+		</div>
+    <div class="cursor" id="cursor"></div>
+    <div class="retorno"><a href="index.html">Volver a página principal</a></div>
+    <footer>Universidad de Alcalá</footer>
+  </body>
+  <script>
+    // Custom Cursor
+    const cursor = document.getElementById("cursor");
+
+    document.addEventListener("mousemove", (e) => {
+      cursor.setAttribute(
+        "style",
+        "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;"
+      );
+    });
+</script>
+  </html>

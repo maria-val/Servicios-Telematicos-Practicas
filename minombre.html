@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html manifest="mymanifest.appcache">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="css/iroom.css">
+        <title>Smart Room Project</title>
+        <script>
+            function func_name() {
+                var name = document.getElementById("nombre").value;
+                localStorage.setItem("fname", name);
+                if(name){
+                alert("Se ha guardado el nombre")
+            }
+            else{
+                alert("INTRODUCA UN NOMBRE")
+            return;
+            }
+            var mail = document.getElementById("email").value;
+            var domOK = false;
+            var valido = false;
+            for(var i=0; i < mail.length; i++) {
+                if(mail[i] == "@" && i != 0 && i+1 != mail.length) {
+                    valido = true;
+                }
+                if(valido && (mail[i-1]!="@") && (mail[i]==".")) { 
+                    domOK = true;
+                }
+            }
+            if(!domOK && valido) {
+                alert("Dominio incorrecto: EL CORREO INTRODUCIDO NO ES VÁLIDO");
+            }
+            if(!valido) {
+                alert("EL CORREO INTRODUCIDO NO ES VÁLIDO");
+            }
+            if(valido && domOK){
+                alert("El correo electrónico es válido");
+            }
+        }
+        function func_name_expreg() {
+            var name = document.getElementById("nombre").value;
+            localStorage.setItem("fname", name);
+            if(name){
+                alert("Se ha guardado el nombre")
+            }
+            else{
+                alert("INTRODUCA UN NOMBRE")
+            return;
+            }
+            var mail = document.getElementById("email").value;
+            var expReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.(?:[a-zA-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)$/;
+            var valido=expReg.test(mail);
+            if(!mail){
+            alert("INTRODUCA UN EMAIL")
+            return;
+            }
+            if(valido){
+                alert("El correo electrónico es válido");
+            }
+            else{
+                alert("EL CORREO INTRODUCIDO NO ES VÁLIDO");
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div class="contenedor"> 
+            <header>Smart Room Project</header>
+            <form class="minombre">
+                <h1>Escriba aquí sus datos</h1>
+                Nombre:<input id="nombre" type="text"><br>
+                Correo electrónico:<input id="email" type="email"><br>
+                <input value="Verificar email" type="button" onclick="func_name()"></input>
+                <input value="Verificar email(ExpReg)" type="button" onclick="func_name_expreg()"></input><br>
+                <span id="resol"></span><br>
+            </form>
+        </div>
+        <div class="retorno"><a href="index.html">Volver a página principal</a></div>
+        <footer>Universidad de Alcalá</footer>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html manifest="mymanifest.appcache">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="css/iroom.css">
+        <title>Smart Room Project</title>
+    </head>
+    <body>
+        <div class="contenedor"> 
+            <header>Smart Room Project</header>
+            <div class="menu">
+                <a href="minombre.html">Nombre</a> &nbsp&nbsp
+                <a href="config.html">Configuración</a> &nbsp&nbsp
+                <a href="galeria.html">Galería</a> &nbsp&nbsp
+                <a href="tablas.html">Tablas</a> &nbsp&nbsp
+            </div>
+            <div class="info" id="name">Información</div>
+            <div class="datos">
+                <h1>Datos de la habitación</h1>
+                <ul>
+                    <li>País: España</li>
+                    <li>Ciudad:Alcalá de Henares, Madrid</li>
+                    <li>Localización: 40.482727, -3.364342</li>
+                    <li><a href="https://www.google.es/maps/place/40%C2%B028'57.8%22N+3%C2%B021'51.6%22W/@40.482727,-3.364342,17z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!7e2!8m2!3d40.4827267!4d-3.3643416?hl=es" target="_blank">Google Maps</a></li>
+                </ul>
+                <img src="images/habitacion-inteligente.jpeg">
+            </div>
+  
+            <div class="datos">
+                <h1>Datos de los sensores</h1>
+                <table>
+                <tbody>
+                <tr>
+                    <td>Temperatura actual(º)</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Humedad actual(%)</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>Nivel de ruido</td>
+                    <td>115</td>
+                </tr>
+                <tr>
+                    <td>Nivel de luz</td>
+                    <td>225</td>
+                </tr>
+                <tr>
+                    <td>Configuración de estación</td>
+                    <td>Verano</td>
+                </tr>
+                <tr>
+                    <td>Color iluminación</td>
+                    <td>FF00FF</td>
+                </tr>
+            </tbody>
+            </table>
+            </div>
+            <footer>Universidad de Alcalá</footer>
+        </div>
+    </body> 
+    <script>
+        nombre = localStorage.getItem("fname");
+        if(nombre == null) {
+            alert("No se ha introducido un nombre")
+        }
+        else {
+            document.getElementById("name").innerHTML = "¡Hola " + nombre + ":Bienvenido a SmartRoom!";
+        }
+    </script>
+</html>

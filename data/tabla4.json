@@ -1,0 +1,34 @@
+{ "datos":[
+    {
+        "ciudad": "Tokyo",
+        "temperatura": 25,
+        "humedad": 48,
+        "ruido": 150,
+        "nivel_luz": 120,
+        "color_iluminacion": "000000"
+    },
+    {
+        "ciudad": "Kyoto",
+        "temperatura": 10,
+        "humedad": 69,
+        "ruido": 176,
+        "nivel_luz": 100,
+        "color_iluminacion": "FFFFFF"
+    },
+    {
+        "ciudad": "Osaka",
+        "temperatura": 29,
+        "humedad": 80,
+        "ruido": 49,
+        "nivel_luz": 50,
+        "color_iluminacion": "F0F0FF"
+    },
+    {
+        "ciudad": "Yokohama",
+        "temperatura": 26,
+        "humedad": 70,
+        "ruido": 89,
+        "nivel_luz": 178,
+        "color_iluminacion": "000000"
+    }
+]}

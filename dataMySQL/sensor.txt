@@ -1,0 +1,1 @@
+0	sensor_1	primer sensor	23	20	30	1	12:1a:3f:f1:4c:c6	345	1	1

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html manifest="mymanifest.appcache">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="css/iroom.css">
+        <title>Smart Room Project</title>
+    </head>
+    <body>
+        <div class="contenedor">
+            <header>Smart Room Project</header>
+            <div class="col">
+                <h1>Datos de la habitación</h1>
+                <form>
+                    País:<input list="lista" id="pais" onblur="country()">
+                    <datalist id="lista">
+                        <option value="España"></option>
+                        <option value="Francia"></option>
+                        <option value="Japón"></option>
+                        <option value="México"></option>
+                        <option value="Colombia"></option>
+                        <option value="Turquía"></option>
+                    </datalist><br> 
+                    Ciudad:<input list="listaCiudad" id="ciudad" type="text" onblur="city()">
+                    <datalist id="listaCiudad">
+                        <option id="ciudad1" ></option>
+                        <option id="ciudad2" ></option>
+                        <option id="ciudad3" ></option>
+                        <option id="ciudad4" ></option>
+                    </datalist><br>
+                    Coordenadas GPS:<input name="coordenadas" id="coordenadas" type="text">
+                    <input type="button" value="Generar URL" onclick="urlCoord()"><br>
+                    <input type="button" value="geolocalizacion" onclick="myposition()"><br>
+                    Mapa URL:<input name="mapa" id="url" type="url"><br>
+                    Foto:<input value="Examinar" type="file"><br>
+                    Password:<input name="pwd" id="pwd" type="password" onchange="carPwd()">
+                    <span id="calidad"></span>
+                </form>
+                <hr>
+                <input value="Enviar datos" type="submit" onclick="funevent()">
+        </div>
+        <div class="col">
+            <h1>Seleccione los sensores</h1>
+            <input name="temperatura" type="checkbox">Temperatura<br>
+            <input name="humedad" type="checkbox">Humedad<br>
+            <input name="sonido" type="checkbox">Nivel de sonido<br>
+            <input name="luz" type="checkbox">Nivel de luz<br>
+            <input name="movimineto" type="checkbox">Configuración de estación<br>
+            <h1>Configure Alertas</h1>
+            <form method="get" oninput="variable.value=parseInt(max.value)-parseInt(min.value)">
+                Temperatura máxima<br>
+                <input name="max" id="max" max="45" min="-20" type="number" onchange="verifTemp()"><br>
+                Temperatura mínima<br>
+                <input name="min" id="min" max="45" min="-20" type="number" onchange="verifTemp()"><br>
+                Variación de Temperatura: <output name="variable" for="max min"></output>
+            </form>
+        </div>
+        <div class="retorno"><a href="index.html">Volver a página principal</a></div>
+        <footer>Universidad de Alcalá</footer>
+        </div>
+    </body>
+    <script>
+        function funevent(){
+            alert("El formulario se ha enviado correctamente");
+        }
+
+        function country(){
+            lista = ["España","Francia","Japón","México","Colombia","Turquía"];
+            paisOK=0;
+            for(i=0; i<lista.length; i++){
+                if(pais.value == lista[i] || pais.value == 'Alemania' || pais.value=='Italia'){
+                    alert("País Aceptado");
+                    paisOK=1;
+                    return;
+                }
+            } 
+            if(paisOK==0){
+                alert("País Erróneo");
+                return;
+            }
+        } 
+        
+        function city(){
+            archivo = "/data/" + document.getElementById("pais").value + ".txt";
+            i = 1;
+            const objeto = new XMLHttpRequest();
+            objeto.onload = function(){
+                ciudades=this.response.split("\n");
+                ciudades.forEach(function(nom){
+                    document.getElementById("ciudad"+i).value = nom;
+                    i++;
+                });
+                
+            }
+            objeto.open("GET", archivo);
+            objeto.send();
+        }
+        
+        function calculateTempVar(){
+            var tempmin = document.getElementById("min").value;
+            var tempmax = document.getElementById("max").value;
+            if (tempmax <tempmin) {//la tempmaxima es menor que la mínima
+                alert("La temperatura máxima tiene que ser mayor que la minima");
+                document.getElementById("min").value = tempmax - 1;
+                document.getElementById("max").value = tempmax;
+                document.getElementById("variable").value = 1;
+            } 
+            else 
+                document.getElementById("variable").value = (tempmax - tempmin);
+            verifTemp();
+        }
+
+        function verifTemp(){
+            maximo = document.getElementById("max").value;
+            minimo = document.getElementById("min").value;
+            error=0;
+            if(maximo<22 || maximo>26){
+                document.getElementById("max").style.color="red";
+            }
+            else{
+                document.getElementById("max").style.color="black";
+            }
+            if(minimo<22 || minimo>26){
+                document.getElementById("min").style.color="red";
+            }
+            else{
+                document.getElementById("min").style.color="black";
+            }
+            if(error==1){
+                alert("Temperatura no correcta");  
+            }
+        }
+             
+        function carPwd(){
+            contraseña = document.getElementById("pwd").value;
+            if(contraseña.length < 6)
+                document.getElementById("calidad").innerHTML = "Contraseña débil, debe tener más de 6 caracteres";
+            else
+                document.getElementById("calidad").innerHTML = "Contraseña segura";
+        }
+
+        function urlCoord(){
+            coord = document.getElementById("coordenadas").value;
+            mapaUrl = document.getElementById("url");
+            char = {" " : "+", "N" : "", "S" : "-", "E" : "", "O" : "-"};
+            result = coord.replace(/[NSEO\s]/g, m => char[m]);
+            mapaUrl.value = "https://maps.google.com/maps?q="+ result;
+        }
+      
+        function myposition(){
+            if(navigator.geolocation){
+                alert("El navegador soporta geolocalización");
+                navigator.geolocation.getCurrentPosition(localizacion,error);
+            }
+            else{
+                alert("El navegador no soporta geolocalización");
+            }
+            function localizacion(posicion){
+                var latitud = posicion.coords.latitude;
+                var longitud = posicion.coords.longitude;
+                alert("Latitud"+ latitud + "Longitud" + longitud);
+            }
+            function error(){
+                alert("No se pudo obtener la geolocalizacion");
+            }
+        }
+    </script>
+</html>
